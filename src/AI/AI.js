@@ -101,7 +101,7 @@ class SkirmisherAI extends AI {
   constructor(object) {
     super(object);
     this.wasFacing = false;
-    this.coastTime = 50;
+    this.coastTime = 70;
     this.coastingFor = this.coastTime;
   }
 
@@ -123,7 +123,7 @@ class SkirmisherAI extends AI {
         this.wasFacing &&
         this.coastingFor <= this.coastTime
       ) {
-        this.coastingFor ++;
+        this.coastingFor += timescale;
         this.object.accelerate();
       } else {
         this.coastingFor = 0;

@@ -519,7 +519,7 @@ class AttachmentPoint {
 
 var Textures = {
   interceptor: {
-    texture: PIXI.Texture.fromImage('assets/Interceptor.png'),
+    texture: PIXI.Texture.fromImage('../assets/Interceptor.png'),
     width: 21,
     height: 21,
     attachmentPoints: {
@@ -530,7 +530,7 @@ var Textures = {
     }
   },
   missile_boat: {
-    texture: PIXI.Texture.fromImage('assets/MissileBoat.png'),
+    texture: PIXI.Texture.fromImage('../assets/MissileBoat.png'),
     width: 31,
     height: 38,
     attachmentPoints: {
@@ -541,7 +541,7 @@ var Textures = {
     }
   },
   light_weapon_platform: {
-    texture: PIXI.Texture.fromImage('assets/LightWeaponPlatform.png'),
+    texture: PIXI.Texture.fromImage('../assets/LightWeaponPlatform.png'),
     width: 31,
     height: 50,
     attachmentPoints: {
@@ -552,12 +552,12 @@ var Textures = {
     }
   },
   light_turrets: {
-    texture: PIXI.Texture.fromImage('assets/LightTurrets.png'),
+    texture: PIXI.Texture.fromImage('../assets/LightTurrets.png'),
     width: 23,
     height: 23,
   },
   projectiles: {
-    texture: PIXI.Texture.fromImage('assets/Projectiles.png'),
+    texture: PIXI.Texture.fromImage('../assets/projectiles.png'),
     width: 11,
     height: 16,
   },
@@ -764,7 +764,7 @@ class SkirmisherAI extends AI {
   constructor(object) {
     super(object);
     this.wasFacing = false;
-    this.coastTime = 50;
+    this.coastTime = 70;
     this.coastingFor = this.coastTime;
   }
 
@@ -786,7 +786,7 @@ class SkirmisherAI extends AI {
         this.wasFacing &&
         this.coastingFor <= this.coastTime
       ) {
-        this.coastingFor ++;
+        this.coastingFor += timescale;
         this.object.accelerate();
       } else {
         this.coastingFor = 0;
@@ -1243,7 +1243,7 @@ class InterceptorLaser extends LaserWeapon {
 class InterceptorMissile extends MissileWeapon {
   constructor(ship, weaponSlot) {
     super(
-      ship,
+      ship, 
       weaponSlot,
       Textures.interceptor.attachmentPoints.weapon[weaponSlot],
       Textures.getTextureFrame(Textures.interceptor, 3)
@@ -1254,7 +1254,7 @@ class InterceptorMissile extends MissileWeapon {
 class LWP_LaserTurret extends TurretWeapon {
   constructor(ship, weaponSlot) {
     super(
-      ship,
+      ship, 
       weaponSlot,
       Textures.light_weapon_platform.attachmentPoints.weapon[weaponSlot],
       Textures.getTextureFrame(Textures.light_turrets, 0),
@@ -1769,7 +1769,7 @@ class DamageType {
         amount = this.damageMap[target.armorType];
       }
     }
-
+    
     target.dealDamage(amount);
   }
 }
@@ -2867,7 +2867,7 @@ Game.init();
 
 // start animating
 function animate() {
-  const timeScale = 1;
+  const timeScale = 0.4;
   mainScreen.animationFrame(timeScale);
 
   requestAnimationFrame(animate);

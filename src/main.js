@@ -12,7 +12,7 @@ Game.init();
 
 // start animating
 function animate() {
-  const timeScale = 1;
+  const timeScale = 0.4;
   mainScreen.animationFrame(timeScale);
 
   requestAnimationFrame(animate);
