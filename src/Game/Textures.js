@@ -18,9 +18,11 @@ class AttachmentPoint {
   }
 }
 
+const assetPath = window.assetPath || '..'
+
 var Textures = {
   interceptor: {
-    texture: PIXI.Texture.fromImage('../assets/Interceptor.png'),
+    texture: PIXI.Texture.fromImage(assetPath + '/assets/Interceptor.png'),
     width: 21,
     height: 21,
     attachmentPoints: {
@@ -31,7 +33,7 @@ var Textures = {
     }
   },
   missile_boat: {
-    texture: PIXI.Texture.fromImage('../assets/MissileBoat.png'),
+    texture: PIXI.Texture.fromImage(assetPath + '/assets/MissileBoat.png'),
     width: 31,
     height: 38,
     attachmentPoints: {
@@ -42,7 +44,7 @@ var Textures = {
     }
   },
   light_weapon_platform: {
-    texture: PIXI.Texture.fromImage('../assets/LightWeaponPlatform.png'),
+    texture: PIXI.Texture.fromImage(assetPath + '/assets/LightWeaponPlatform.png'),
     width: 31,
     height: 50,
     attachmentPoints: {
@@ -53,12 +55,12 @@ var Textures = {
     }
   },
   light_turrets: {
-    texture: PIXI.Texture.fromImage('../assets/LightTurrets.png'),
+    texture: PIXI.Texture.fromImage(assetPath + '/assets/LightTurrets.png'),
     width: 23,
     height: 23,
   },
   projectiles: {
-    texture: PIXI.Texture.fromImage('../assets/projectiles.png'),
+    texture: PIXI.Texture.fromImage(assetPath + '/assets/Projectiles.png'),
     width: 11,
     height: 16,
   },
